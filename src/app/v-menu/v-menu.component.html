@@ -1,0 +1,11 @@
+<button *ngIf="isLeft" class="wust-menu-button wust-menu-button-left " (click)="slideIn=!slideIn" [ngClass]="slideIn?'slideInMenu':''">
+  <i class="fa fa-caret-left" [ngStyle]="{ 'transform': slideIn?'rotate(-180deg)':'rotate(0deg)'}"></i>
+</button>
+<button *ngIf="!isLeft" class="wust-menu-button wust-menu-button-right" [ngClass]="slideIn?'slideInMenu':''" (click)="slideIn=!slideIn">
+  <i class="fa fa-caret-right" [ngStyle]="{ 'transform': slideIn?'rotate(-180deg)':'rotate(0deg)'}"></i>
+</button>
+<div class="wust-menu-container"  [ngClass]="{'nopad-left':!isLeft,'nopad-right':isLeft}" [ngStyle]="{'transform':slideIn?('translate3d('+(isLeft?'-':'')+'100%,0,0)'):'translate3d(0,0,0)'}">
+ <div class="wust-menu-content" #parent>
+   <ul #child wust-submenu (collapseBtnClick)="collapseClick($event)" (submenuItemClick)="menuItemClick($event)" [menu]="menuData " class="wust-ul" id="wust-menu" [ngStyle]="{'transform':'translate3d(0,'+distance+'px,0)'}"></ul>
+ </div>
+</div>

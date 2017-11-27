@@ -1,0 +1,13 @@
+<ng-template ngFor let-child let-i="index" [ngForOf]="root?menu:menu.children">
+    <li class="wust-li" [ngClass]="{'has-children':child.children,'open':child.open}">
+        <a class="wust-label" #itemlabel [ngClass]="{'active':false,'a-children':child.children}" href="javascript:void(0)" (click)="itemClick(child,i,itemlabel)">
+            <div class="fa  wust-icon" [ngClass]="child.icon"></div>
+            <span class="label-text">{{child.label}}</span>
+        </a>
+        <div class="has-children-icon" *ngIf="child.children" [ngClass]="{'showSubmenu':child.open }" (click)="collapseClick(child,i)">
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <ul wust-submenu class="wust-submenu"  (submenuItemClick)="itemClick($event)" [menu]="child.children" *ngIf="child.children"></ul>
+    </li>
+</ng-template>

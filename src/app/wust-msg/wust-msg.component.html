@@ -1,0 +1,26 @@
+<div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="10px" >
+  <div *ngFor="let item of data" fxLayout="row" class="msg-item" [ngClass]="item.status">
+    <div class="msg-icon">
+      <i *ngIf="item.status === 'error'" class="fa fa-close"></i>
+      <i *ngIf="item.status === 'warn'" class="fa fa-exclamation-triangle"></i>
+      <i *ngIf="item.status === 'success'" class="fa fa-check-circle"></i>
+      <i *ngIf="item.status === 'info'" class="fa fa-commenting"></i>
+    </div>
+    <div class="msg-text" fxFlex fxLayout="column">
+      <div class="msg-title">
+        <ng-container *ngIf="item.status === 'error'">错误！</ng-container>
+        <ng-container *ngIf="item.status === 'warn'">警告！</ng-container>
+        <ng-container *ngIf="item.status === 'success'">完成！</ng-container>
+        <ng-container *ngIf="item.status === 'info'">提示！</ng-container>
+      </div>
+      <div class="msg-msg" title="{{item.message}}">
+        {{item.message}}
+      </div>
+    </div>
+    <div class="msg-count">
+      <div class="msg-badge" >
+        {{item.count}}
+      </div>
+    </div>
+  </div>
+</div>

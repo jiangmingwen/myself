@@ -1,0 +1,96 @@
+$box-bg:rgba(0,0,0,.1);
+$error:red;
+$warn:yellow;
+$success:green;
+$info:blue;
+$msgColor:#FFF;
+.msg-item{
+    height: 50px;
+    width: 250px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: $box-bg;
+    &.error{
+        border-color: $error;
+        .fa,.msg-title{
+            color:  $error;
+        }
+        .msg-badge{
+            background-color: $error;
+        }
+    }
+    &.warn{
+        border-color: $warn;
+        .fa,.msg-title{
+            color: $warn;
+        }
+        .msg-badge{
+            background-color: $warn;
+        }
+    }
+    &.success{
+        border-color: $success;
+        .fa,.msg-title{
+            color:  $success;
+        }
+        .msg-badge{
+            background-color: $success;
+        }
+    }
+    &.info{
+        border-color: $info;
+        .fa,.msg-title{
+            color:  $info;
+        }
+        .msg-badge{
+            background-color: $info;
+        }
+    }
+    .msg-icon{
+        height: 50px;
+        line-height: 55px;
+        width: 40px;
+        text-align: center;
+        .fa{
+            font-size: 28px;
+        }
+    }
+    .msg-text{
+        text-indent: 1em;
+        .msg-title{
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 25px;
+        }
+        .msg-msg{
+            width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $msgColor;
+            font-size: 12px;
+        }
+    }
+    .msg-count{
+        height: 50px;
+        line-height: 50px;
+        width: 30px;
+        text-align: center;
+        position: relative;
+        .msg-badge{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin:auto;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            line-height: 20px;
+            text-align: center;
+            color: #FFF;
+        }
+    }
+}

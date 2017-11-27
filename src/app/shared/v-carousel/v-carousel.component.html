@@ -1,0 +1,27 @@
+<div class="slider-container" #container id="container">
+  <div class="slider-control left inactive" (click)="onPreviousOrNextClick(0)">
+    <div class="icon-btn"></div>
+  </div>
+  <div class="slider-control right" (click)="onPreviousOrNextClick(1)">
+    <div class="icon-btn"></div>
+  </div>
+  <ul class="slider-pagi">
+    <li *ngFor="let item of data;let i = index;" (click)="onPagiItemClick(i)" class="slider-pagi__elem slider-pagi__elem-{{i}}"
+      [ngClass]="{'active':currentIndex === i}"></li>
+  </ul>
+  <div class="slider" [ngClass]="{'animating':animating}"  [ngStyle]="{'transform': 'translate3d('+sliderTranslate+'%, 0px, 0px)'}">
+    <div class="slide slide-{{i}}" *ngFor="let slide of data;let i = index;" [ngClass]="{'active':currentIndex == i}" [ngStyle]="{'left':i*100+'%'}" >
+      <div class="slide__bg" [ngStyle]="{'background-image':  'url('+slide.url+')','transform': 'translate3d('+sliderBgTranslate+'%, 0px, 0px)','left':-i*100*.5+'%'}"></div>
+      <div class="slide__content">
+        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" [ngStyle]="{'fill':slide.color}" />
+        </svg>
+        <div class="slide__text">
+          <h2 class="slide__text-heading">{{slide.title}}</h2>
+          <p class="slide__text-desc">{{slide.description}}</p>
+          <a class="slide__text-link">{{slide.link}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

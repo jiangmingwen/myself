@@ -1,0 +1,199 @@
+.wust-menu-button{
+    background: rgba(0,0,0,.3);
+    color:rgba(255,255,255,.6);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    border:0;
+    font-size: 28px;
+    cursor: pointer;
+    &:focus{
+        outline: 0;
+    }
+    &:hover{
+         color:#FFF;
+         border:1px solid rgba(255,255,255,1)!important;
+         background: rgba(0,0,0,.4);
+    }
+    &.wust-menu-button-left{
+        left:0;
+        top:50%;
+        margin-top: -20px;
+        height: 60px;
+        border-radius: 2px;
+        width: 25px;
+        border:1px solid rgba(255,255,255,.6);
+        border-left: 0;
+        z-index: 1;
+        .fa{
+            transition: transform .3s;
+        }
+        &.slideInMenu{
+            border:1px solid rgba(255,255,255,.3);
+            background: rgba(0,0,0,.1);
+            color:rgba(255,255,255,.3);
+            &:hover{
+                border:1px solid rgba(255,255,255,.6);
+                background: rgba(0,0,0,.3);
+                color:rgba(255,255,255,.6);
+            }
+        }
+    }
+    &.wust-menu-button-up{
+     top:0;
+     left:50%;
+     margin-left:-10px;
+     border:1px solid rgba(255,255,255,.6);
+     &:hover:disabled{
+      color:rgba(255,255,255,.3);
+      border:1px solid rgba(255,255,255,.3)!important;
+      background: rgba(255,255,255,.3);
+     }
+     &:disabled{
+      color:rgba(255,255,255,.3);
+      border:1px solid rgba(255,255,255,.3)!important;
+      background: rgba(255,255,255,.3);
+      cursor: not-allowed;
+     }
+    }
+
+
+    &.wust-menu-button-down{
+     bottom:0px;
+     left:50%;
+     margin-left:-10px;
+     border:1px solid rgba(255,255,255,.6);
+     &:hover:disabled{
+      color:rgba(255,255,255,.3);
+      border:1px solid rgba(255,255,255,.3)!important;
+      background: rgba(255,255,255,.3);
+     }
+     &:disabled{
+      color:rgba(255,255,255,.3);
+      border:1px solid rgba(255,255,255,.3)!important;
+      background: rgba(255,255,255,.3);
+      cursor: not-allowed;
+     }
+    }
+    &.wust-menu-button-right{
+     top:50%;
+     right:0;
+     margin-top:-20px;
+     height: 60px;
+     border-radius: 2px;
+     width: 25px;
+     border:1px solid rgba(255,255,255,.6);
+     border-right: 0;
+     z-index: 1;
+    }
+}
+
+.wust-menu-container{
+    height: calc(100% - 80px);
+    width: calc(100% - 50px);
+    padding:40px 25px;
+    position: relative;
+    transform: translate(0);
+    transition: transform .3s;
+    .wust-menu-content{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+  &.nopad-left{
+    padding-left:5px;
+  }
+  &.nopad-right{
+    padding-right: 5px;
+  }
+  ul{
+    &.wust-ul{
+      transform: translate3d(0,0,0);
+      transition: transform .3s;
+    }
+      list-style: none!important;
+      padding:0;
+      margin: 0;
+      .wust-li{
+        max-height: 30px;
+        overflow: hidden;
+        transition: max-height .6s cubic-bezier(.35,0,.25,1);
+        &.has-children{
+          position: relative;
+        }
+        &.open{
+          max-height: 2000px;
+        }
+      }
+      .wust-icon.fa{
+        color: #FFF;
+        height: 30px;
+        float: left;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 0 12px;
+      }
+      .wust-label{
+        height: 30px;
+        display: block;
+        text-decoration: none;
+        color:rgba(255,255,255,.8);
+        font-size: 16px;
+        line-height: 30px;
+        background: rgba(0,0,0,.6);
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid rgba(255,255,255,.6);
+        margin: 2px 0;
+        &.active{
+          background: #36ADF4;
+        }
+        &:hover{
+          background:rgba( #36ADF4,.8);
+          .wust-icon,.label-text{
+            font-size: 20px;
+            transform: scale(1.1);
+          }
+        }
+      }
+      .has-children-icon{
+        position: absolute;
+        right: 0;
+        top:0;
+        height: 30px;
+        width: 30px;
+        z-index: 10;
+        color:rgba(255,255,255,.8);
+        .line{
+          width:16px;
+          height: 2px;
+          background-color: #ECF0F1;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          display: block;
+          margin: auto;
+          transition: all .6s cubic-bezier(.35,0,.25,1);
+          &:nth-child(2){
+              transform: rotate(90deg);
+            }
+        }
+        &.showSubmenu{
+          .line:nth-child(2){
+            transform: rotate(0deg)
+          }
+        }
+      }
+      .wust-submenu{
+        clear: both;
+          padding-left:16px;
+          .wust-submenu{
+              padding-left:16px;
+          }
+      }
+  }
+}

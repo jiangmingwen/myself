@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+
+<!-- <div style="height:500px;">
+
+  <v-carousel></v-carousel>  
+</div> -->
+<div style="height:100%;width:200px;background:rgb(209, 176, 176);">
+  <wust-menu [menuData]="menuData" (itemClick)="click($event)" ></wust-menu>
+</div>
+
+<!-- <wust-simple-table [data]="data"></wust-simple-table> -->
+<!-- <div style="height:200px">
+  <wust-datatable [sort]="true"  [outline]="true"[border]="true" [scrollable]="true"   [value]="data" [pagination]="true" [row]="20">
+      <wust-datatable-column *ngFor="let item of cols" field="{{item}}" header="{{item}}">
+          <ng-template let-col let-i let-row="rowData">
+            <div>{{row[item]}}</div>
+          </ng-template>
+      </wust-datatable-column>
+    </wust-datatable>
+</div> -->
+<wust-msg [data]="mdata"></wust-msg>
